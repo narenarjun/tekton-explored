@@ -20,7 +20,7 @@ You can get the latest version of Tekton yamls from [here](https://storage.googl
 
 Tasks happen inside a pod. You can use tasks to perform various CI/CD operations.
 
-### task-1
+### task - 1
 
 applying the task to the k8s environment :
 
@@ -38,4 +38,26 @@ running the task :
 
 ```bash
 tkn task start --showlog hello
+```
+
+### add parameter to task - 2
+
+Tasks can also take parameters.
+
+Applying the task to k8s environment :
+
+```bash
+kubectl apply -f ./demo/02-param.yaml
+```
+
+starting the task :
+
+```bash
+tkn task start --showlog hello
+```
+
+We can also specify the parameters directly from the command line by using the -p argument.
+
+```bash
+tkn task start --showlog -p person=Shiva hello
 ```
