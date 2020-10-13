@@ -112,3 +112,14 @@ Executing the Tekton Pipeline :
 ```bash
 tkn pipeline start say-things-in-order --showlog
 ```
+
+### Pipeline Resources
+
+```bash
+kubectl apply -f ./demo/07-pipelineresource.yaml
+```
+
+```bash
+tkn pipeline start count --showlog
+tkn pipeline start count --showlog --resource git-repo=git-repo
+```
