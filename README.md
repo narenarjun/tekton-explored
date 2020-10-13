@@ -47,7 +47,7 @@ Tasks can also take parameters.
 Applying the task to k8s environment :
 
 ```bash
-kubectl apply -f ./demo/02-param.yaml
+kubectl apply -f ./tekton-yamls/02-param.yaml
 ```
 
 starting the task :
@@ -60,4 +60,20 @@ We can also specify the parameters directly from the command line by using the -
 
 ```bash
 tkn task start --showlog -p person=Shiva hello
+```
+
+### Multiple steps in a Task -3
+
+Tekton tasks can have more than one step.
+
+Applying the task to k8s environment
+
+```bash
+kubectl apply -f ./tekton-yamls/03-multistep.yaml
+```
+
+starting the task :
+
+```bash
+tkn task start --showlog hello
 ```
