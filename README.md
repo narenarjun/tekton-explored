@@ -77,3 +77,22 @@ starting the task :
 ```bash
 tkn task start --showlog hello
 ```
+
+### Pipelines - 4
+
+A Pipeline is a collection of Tasks that we define and arrange in a specific order of execution as part of our continuous integration flow.
+
+Each Task in a Pipeline executes as a Pod on your Kubernetes cluster.
+
+Applying the task and pipeline to the k8s environment :
+
+```bash
+kubectl apply -f ./demo/04-tasks.yaml
+kubectl apply -f ./demo/05-pipeline.yaml
+```
+
+Executing the Pipeline :
+
+```bash
+tkn pipeline start say-things --showlog
+```
