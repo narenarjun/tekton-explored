@@ -15,3 +15,27 @@ kubectl apply -f ./tekton-install/tekton-install.yaml
 ```
 
 You can get the latest version of Tekton yamls from [here](https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml). I have saved them into the [tekton-install.yaml](./tekton-install/tekton-install.yaml) and it's a good practice to have them in source control for later inspection and updating cycles.
+
+## Tasks
+
+Tasks happen inside a pod. You can use tasks to perform various CI/CD operations.
+
+### task-1
+
+applying the task to the k8s environment :
+
+```bash
+kubectl apply -f ./tekton-yamls/01-hello.yaml
+```
+
+Let's list all the tasks in our environment :
+
+```bash
+tkn task list
+```
+
+running the task :
+
+```bash
+tkn task start --showlog hello
+```
