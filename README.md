@@ -87,12 +87,28 @@ Each Task in a Pipeline executes as a Pod on your Kubernetes cluster.
 Applying the task and pipeline to the k8s environment :
 
 ```bash
-kubectl apply -f ./demo/04-tasks.yaml
-kubectl apply -f ./demo/05-pipeline.yaml
+kubectl apply -f ./tekton-yamls/04-tasks.yaml
+kubectl apply -f ./tekton-yamls/05-pipeline.yaml
 ```
 
-Executing the Pipeline :
+Executing the Tekton Pipeline :
 
 ```bash
 tkn pipeline start say-things --showlog
+```
+
+### Run Task in parallel or sequentially in a Pipeline
+
+We can make a task to complete before another one, for this we can use the `runAfter` parameter in the task definition of our Pipeline.
+
+Applying the task and pipeline to the k8s environment :
+
+```bash
+kubectl apply -f ./tekton-yamls/06-pipeline-order.yaml
+```
+
+Executing the Tekton Pipeline :
+
+```bash
+tkn pipeline start say-things-in-order --showlog
 ```
